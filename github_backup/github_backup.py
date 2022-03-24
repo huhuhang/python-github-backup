@@ -1070,14 +1070,14 @@ def fetch_repository(name,
 
     masked_remote_url = mask_password(remote_url)
 
-    initialized = subprocess.call('git ls-remote ' + remote_url,
-                                  stdout=FNULL,
-                                  stderr=FNULL,
-                                  shell=True)
-    if initialized == 128:
-        log_info("Skipping {0} ({1}) since it's not initialized".format(
-            name, masked_remote_url))
-        return
+    # initialized = subprocess.call('git ls-remote ' + remote_url,
+    #                               stdout=FNULL,
+    #                               stderr=FNULL,
+    #                               shell=True)
+    # if initialized == 128:
+    #     log_info("Skipping {0} ({1}) since it's not initialized".format(
+    #         name, masked_remote_url))
+    #     return
 
     if clone_exists:
         log_info('Updating {0} in {1}'.format(name, local_dir))
